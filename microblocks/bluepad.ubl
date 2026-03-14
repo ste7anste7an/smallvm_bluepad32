@@ -1,0 +1,26 @@
+module bluepad Input
+author Ste7an
+version 1 0 
+description 'read BluePad32 contoller. uses special Bluepad vm'
+
+  spec 'r' '[io:bp_connected]' 'is gamepad connected'
+  spec 'r' '[io:bp_axisx]' 'gamepad left stick X'
+  spec 'r' '[io:bp_axisy]' 'gamepad left stick Y'
+  spec 'r' '[io:bp_axisrx]' 'gamepad right stick X'
+  spec 'r' '[io:bp_axisry]' 'gamepad right stick Y'
+  spec 'r' '[io:bp_button]' 'gamepad buttons'
+  spec 'r' '[io:bp_dpad]' 'gamepad dpad'
+  spec 'r' '[io:bp_gyrox]' 'gamepad gyro X'
+  spec 'r' '[io:bp_gyroy]' 'gamepad gyro Y'
+  spec 'r' '[io:bp_gyroz]' 'gamepad gyro Z'
+  spec 'r' '[io:bp_accelx]' 'gamepad accel X'
+  spec 'r' '[io:bp_accely]' 'gamepad accel Y'
+  spec 'r' '[io:bp_accelz]' 'gamepad accel Z'
+  spec ' ' '[io:bp_playerled]' 'gamepad led nr _' 'num' 1
+  spec ' ' '[io:bp_colorled]' 'gamepad color led _' 'num num num' 0 0 0
+  spec ' ' 'gamepad color r' 'gamepad color r _ g _ b _' 'auto auto auto' '10' '10' '10'
+
+to 'gamepad color r' r g b {
+  '[io:bp_colorled]' ((r * 65536) + ((g * 256) + b)) 100 100
+}
+
