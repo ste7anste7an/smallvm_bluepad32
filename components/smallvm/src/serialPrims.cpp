@@ -268,7 +268,7 @@ static void serialOpen(int baudRate) {
 			//ledcDetachPin(22);         // If PWM was used
 			SERIAL_PORT.begin(baudRate, SERIAL_8N1, 8, 7);	
 		} else {
-			SERIAL_PORT.begin(baudRate, SERIAL_8N1, 21, 22);
+			SERIAL_PORT.begin(baudRate, SERIAL_8N1, 18, 19);
 		}
 	#elif defined(DUELink)
 		if (!DUE_HAS_EDGE_CONNECTOR) return; // serial only supported on boards with edge connectors
